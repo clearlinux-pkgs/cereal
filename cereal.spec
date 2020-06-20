@@ -4,7 +4,7 @@
 #
 Name     : cereal
 Version  : 1.3.0
-Release  : 4
+Release  : 5
 URL      : https://github.com/USCiLab/cereal/archive/v1.3.0/tar.gz/cereal-1.3.0.tar.gz
 Source0  : https://github.com/USCiLab/cereal/archive/v1.3.0/tar.gz/cereal-1.3.0.tar.gz
 Summary  : No detailed summary available
@@ -61,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576607848
+export SOURCE_DATE_EPOCH=1592614483
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -75,8 +75,8 @@ export AR=llvm-ar
 export RANLIB=llvm-ranlib
 export NM=llvm-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto "
 %cmake .. -DSKIP_PORTABILITY_TEST=ON
 make  %{?_smp_mflags}  VERBOSE=1
@@ -90,7 +90,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1576607848
+export SOURCE_DATE_EPOCH=1592614483
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cereal
 cp %{_builddir}/cereal-1.3.0/LICENSE %{buildroot}/usr/share/package-licenses/cereal/762ec582fac5690569f0de7a3b2e80a4e1d27447
